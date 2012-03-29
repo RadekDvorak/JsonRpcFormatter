@@ -4,6 +4,9 @@ namespace
 	// For php-5.3 parse level compatibility
 	if (false === interface_exists('JsonSerializable', false))
 	{
+		/**
+		 * Compatibility interface for php-5.3
+		 */
 		interface JsonSerializable
 		{
 

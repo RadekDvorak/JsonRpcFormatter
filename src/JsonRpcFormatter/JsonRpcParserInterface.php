@@ -2,6 +2,7 @@
 namespace JsonRpcFormatter;
 
 /**
+ * Parser verifies basic assumptions about json-rpc message and builds object representation of the remote call.
  *
  * @author Radek Dvořák <radek.dvorak@gmail.com>
  */
