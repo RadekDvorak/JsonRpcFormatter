@@ -3,7 +3,7 @@
 namespace JsonRpcFormatter\Validator;
 
 /**
- * Common validating class
+ * Validates json-rpc 2.0 member values.
  *
  * @author Radek Dvořák <radek.dvorak@gmail.com>
  */

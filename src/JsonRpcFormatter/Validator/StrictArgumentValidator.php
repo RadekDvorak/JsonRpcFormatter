@@ -3,7 +3,7 @@
 namespace JsonRpcFormatter\Validator;
 
 /**
- * Common validating class
+ * Argument validator that enforces rules, that only SHOULD be applied.
  *
  * @author Radek Dvořák <radek.dvorak@gmail.com>
  */
