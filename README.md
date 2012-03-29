@@ -1,6 +1,8 @@
 #JsonRpcFormatter#
 JsonRpcFormatter is a JSON-RPC 2.0 formatter for PHP.
 
+**This code is alpha quality**
+
 ```
 --> {"jsonrpc": "2.0", "method": "subtract", "params": [42, 23], "id": 1}
 ```
