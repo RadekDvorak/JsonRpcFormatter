@@ -8,6 +8,9 @@ namespace JsonRpcFormatter\Parser;
  */
 class ParseException extends \RuntimeException
 {
+	/**
+	 * The code is considered unparsable as any other json-rpc 2.0 object
+	 */
 	const UNPARSABLE = 1;
 }
 
