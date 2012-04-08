@@ -40,67 +40,6 @@ namespace JsonRpcFormatter
 		 * @return \stdClass
 		 */
 		abstract public function jsonSerialize();
-
-		/**
-		 * Parses string into appropriate message object
-		 *
-		 * HIC SUNT LEONES
-		 *
-		 */
-		public static function parseString($json)
-		{
-			$object = json_decode($json);
-			if (is_null($object) && is_int(json_last_error()))
-			{
-				/**
-				 * @todo Be more verbose
-				 */
-				$message = "Decoding json string failed.";
-				throw new \InvalidArgumentException($message);
-			}
-
-			$decoder = self::getDefaultJsonRpcParser($object);
-			if (!$decoder->isJsonRpc() || !$decoder->hasCorrectVersion())
-			{
-				throw new \InvalidArgumentException($decoder->getLastError());
-			}
-
-			$validator = new Validator\ArgumentValidator($strict = false);
-			if (isset($object->method))
-			{
-				if (isset($object->id))
-				{
-					$return = $decoder->tryBuildRequest($validator);
-				}
-				else
-				{
-					$return = $decoder->tryBuildNotification($validator);
-				}
-			}
-			elseif ($decoder->isResponse())
-			{
-				$return = $decoder->tryBuildResponse($validator);
-			}
-			else
-			{
-				$message = "Failed to parse json object as a json-rpc object.";
-				throw new \InvalidArgumentException($message);
-			}
-
-			return $return;
-		}
-
-		/**
-		 * Creates the default parser
-		 *
-		 * @param \stdClass $object
-		 * @return \JsonRpcFormatter\JsonRpcParser
-		 */
-		public static function getDefaultJsonRpcParser(\stdClass $object)
-		{
-			return new JsonRpcParser($object);
-		}
-
 	}
 
 }
