@@ -155,4 +155,23 @@ class Response extends Message
 		return $this;
 	}
 
+	/**
+	 * Checks if the result subobject is present
+	 *
+	 * @return bool
+	 */
+	public function hasResult()
+	{
+		return isset($this->result);
+	}
+
+	/**
+	 * Checks if the errror subobject is present
+	 *
+	 * @return bool
+	 */
+	public function hasError()
+	{
+		return isset($this->error);
+	}
 }
