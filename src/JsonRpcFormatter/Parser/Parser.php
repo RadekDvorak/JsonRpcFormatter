@@ -47,7 +47,7 @@ class Parser implements ParserInterface
 		}
 		catch (ParseException $e)
 		{
-			if (ParseException::UNPARSABLE == $e->getCode())
+			if (ParseException::INVALID == $e->getCode())
 			{
 				throw $e;
 			}
@@ -59,7 +59,7 @@ class Parser implements ParserInterface
 		}
 		catch (ParseException $e)
 		{
-			if (ParseException::UNPARSABLE == $e->getCode())
+			if (ParseException::INVALID == $e->getCode())
 			{
 				throw $e;
 			}
@@ -71,14 +71,14 @@ class Parser implements ParserInterface
 		}
 		catch (ParseException $e)
 		{
-			if (ParseException::UNPARSABLE == $e->getCode())
+			if (ParseException::INVALID == $e->getCode())
 			{
 				throw $e;
 			}
 		}
 
 		$message = "Failed to parse the message.";
-		throw new ParseException($message);
+		throw new ParseException($message, ParseException::UNPARSABLE);
 	}
 
 	/**
@@ -116,7 +116,7 @@ class Parser implements ParserInterface
 		catch (\RuntimeException $e)
 		{
 			$message = "Failed to build the request.";
-			throw new ParseException($message, ParseException::UNPARSABLE, $e);
+			throw new ParseException($message, ParseException::INVALID, $e);
 		}
 		return $request;
 	}
@@ -150,7 +150,7 @@ class Parser implements ParserInterface
 		catch (\RuntimeException $e)
 		{
 			$message = "Failed to build the request.";
-			throw new ParseException($message, ParseException::UNPARSABLE, $e);
+			throw new ParseException($message, ParseException::INVALID, $e);
 		}
 		return $notification;
 	}
@@ -212,7 +212,7 @@ class Parser implements ParserInterface
 		catch (\RuntimeException $e)
 		{
 			$message = "Failed to build the request.";
-			throw new ParseException($message, ParseException::UNPARSABLE, $e);
+			throw new ParseException($message, ParseException::INVALID, $e);
 		}
 
 		return $response;
@@ -257,7 +257,7 @@ class Parser implements ParserInterface
 		if (!$isJsonRpc)
 		{
 			$message = "Each jsonRpc 2.0 message contains jsonrpc member with value \"2.0\".";
-			throw new ParseException($message, ParseException::UNPARSABLE);
+			throw new ParseException($message, ParseException::INVALID);
 		}
 	}
 
@@ -272,19 +272,19 @@ class Parser implements ParserInterface
 		if (!$isStdClass)
 		{
 			$message = "Invalid error object, \\stdClass instance was expected.";
-			throw new ParseException($message, ParseException::UNPARSABLE);
+			throw new ParseException($message, ParseException::INVALID);
 		}
 
 		if (!isset($errorObject->code))
 		{
 			$message = "Failed to find a code of the error object.";
-			throw new ParseException($message, ParseException::UNPARSABLE);
+			throw new ParseException($message, ParseException::INVALID);
 		}
 
 		if (!isset($errorObject->message))
 		{
 			$message = "Failed to find a message of the error object.";
-			throw new ParseException($message, ParseException::UNPARSABLE);
+			throw new ParseException($message, ParseException::INVALID);
 		}
 	}
 
