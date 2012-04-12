@@ -69,7 +69,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \JsonRpcFormatter\Parser\ParseException
+	 * @expectedException \JsonRpcFormatter\Exception\ParseException
 	 * @dataProvider invalidNotificationProvider
 	 */
 	public function testParseJsonRpc2NotificationFailure($jsonString)
@@ -103,7 +103,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \JsonRpcFormatter\Parser\ParseException
+	 * @expectedException \JsonRpcFormatter\Exception\ParseException
 	 * @dataProvider invalidRequestProvider
 	 */
 	public function testParseJsonRpc2RequestFailure($jsonString)
@@ -138,7 +138,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \JsonRpcFormatter\Parser\ParseException
+	 * @expectedException \JsonRpcFormatter\Exception\ParseException
 	 * @dataProvider invalidResponseProvider
 	 */
 	public function testParseJsonRpc2ResponseFailure($jsonString)
@@ -174,7 +174,7 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 
 	/**
 	 * @dataProvider invalidMessageProvider
-	 * @expectedException \JsonRpcFormatter\Parser\ParseException
+	 * @expectedException \JsonRpcFormatter\Exception\ParseException
 	 */
 	public function testParseJsonRpc2MessageFailure($jsonString)
 	{

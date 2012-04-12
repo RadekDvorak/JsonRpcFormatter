@@ -2,11 +2,12 @@
 
 namespace JsonRpcFormatter\Parser;
 
-use \JsonRpcFormatter\Validator\ArgumentValidatorInterface;
+use JsonRpcFormatter\Validator\ArgumentValidatorInterface;
 use JsonRpcFormatter\Notification;
 use JsonRpcFormatter\Request;
 use JsonRpcFormatter\Response;
 use JsonRpcFormatter\Error;
+use JsonRpcFormatter\Exception\ParseException;
 
 /**
  * JsonRpc 2.0 parser class

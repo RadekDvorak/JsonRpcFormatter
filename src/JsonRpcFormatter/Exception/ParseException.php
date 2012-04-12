@@ -1,5 +1,5 @@
 <?php
-namespace JsonRpcFormatter\Parser;
+namespace JsonRpcFormatter\Exception;
 
 /**
  * ParserException
