@@ -15,7 +15,7 @@ use JsonRpcFormatter\Exception\ParseException;
  * @see http://jsonrpc.org/specification
  * @author Radek Dvořák <radek.dvorak@gmail.com>
  */
-class Parser
+class Parser implements ParserInterface
 {
 	/** @var ArgumentValidatorInterface Validator for object construction */
 	private $validator;
