@@ -8,6 +8,7 @@ use JsonRpcFormatter\Request;
 use JsonRpcFormatter\Response;
 use JsonRpcFormatter\Error;
 use JsonRpcFormatter\Exception\ParseException;
+use JsonRpcFormatter\Exception\InvalidArgumentException;
 
 /**
  * JsonRpc 2.0 parser class
@@ -233,7 +234,7 @@ class Parser implements ParserInterface
 		elseif (!is_string($json))
 		{
 			$message = "Argument must be either json object or a string.";
-			throw new \InvalidArgumentException($message);
+			throw new InvalidArgumentException($message);
 		}
 
 		$object = json_decode($json);
@@ -241,7 +242,7 @@ class Parser implements ParserInterface
 		{
 			// @todo Be more verbose
 			$message = "Decoding json string failed.";
-			throw new \InvalidArgumentException($message);
+			throw new InvalidArgumentException($message);
 		}
 		return $object;
 	}

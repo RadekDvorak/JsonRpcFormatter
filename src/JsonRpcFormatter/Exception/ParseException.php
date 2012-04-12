@@ -6,7 +6,7 @@ namespace JsonRpcFormatter\Exception;
  *
  * @author Radek Dvořák <radek.dvorak@gmail.com>
  */
-class ParseException extends \RuntimeException
+class ParseException extends \RuntimeException implements JsonRpcFormatterExceptionInterface
 {
 	/**
 	 * Data is json-rpc object yet parsing caused unrecoverrable error
