@@ -161,15 +161,33 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * @dataProvider messageProvider
 	 */
-	public function testParseJsonRpc2Message($jsonString)
+	public function testParseJsonRpc2Message($jsonString, $class)
 	{
 		$parsedObject = $this->object->parseJsonRpc2Message($jsonString);
 		$this->assertInstanceOf('\JsonRpcFormatter\Message', $parsedObject);
+		$this->assertInstanceOf($class, $parsedObject);
 	}
 
 	public function messageProvider()
 	{
-		return array_merge($this->responseProvider(), $this->notificationProvider(), $this->requestProvider());
+		$data = array();
+		foreach ($this->responseProvider() AS $testCase)
+		{
+			$testCase[] = "\JsonRpcFormatter\Response";
+			$data[] = $testCase;
+		}
+		foreach ($this->notificationProvider() AS $testCase)
+		{
+			$testCase[] = "\JsonRpcFormatter\Notification";
+			$data[] = $testCase;
+		}
+		foreach ($this->requestProvider() AS $testCase)
+		{
+			$testCase[] = "\JsonRpcFormatter\Request";
+			$data[] = $testCase;
+		}
+
+		return $data;
 	}
 
 	/**
