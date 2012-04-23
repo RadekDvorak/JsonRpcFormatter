@@ -211,5 +211,14 @@ class ParserTest extends \PHPUnit_Framework_TestCase
 		);
 	}
 
+	/**
+	 * @expectedException JsonRpcFormatter\Exception\ParseException
+	 * @expectedExceptionCode 1
+	 */
+	public function testParseNonRpc2()
+	{
+		$jsonString = '{"jsonrpc": "2.1", "result": 19}';
+		$parsedObject = $this->object->parseJsonRpc2Message($jsonString);
+	}
 }
 
