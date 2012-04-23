@@ -88,12 +88,17 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
 		$this->object = new Response($validator);
 
+		$this->assertFalse($this->object->hasResult());
+
 		// set Error first to test it is cleared by result setter
 		$this->object->setError($error);
+
+		$this->assertFalse($this->object->hasResult());
 
 		$setterReturn = $this->object->setResult($result);
 		$this->assertInstanceOf('\JsonRpcFormatter\Response', $setterReturn);
 		$this->assertEquals($result, $this->object->getResult());
+		$this->assertTrue($this->object->hasResult());
 
 		$this->setExpectedException('\LogicException');
 		$this->object->getError();
@@ -121,12 +126,17 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
 		$this->object = new Response($validator);
 
+		$this->assertFalse($this->object->hasError());
+
 		// set Result first to test it is cleared by error setter
 		$this->object->setResult($result);
+
+		$this->assertFalse($this->object->hasError());
 
 		$setterReturn = $this->object->setError($error);
 		$this->assertInstanceOf('\JsonRpcFormatter\Response', $setterReturn);
 		$this->assertSame($error, $this->object->getError());
+		$this->assertTrue($this->object->hasError());
 
 		$this->setExpectedException('\LogicException');
 		$this->object->getResult();
