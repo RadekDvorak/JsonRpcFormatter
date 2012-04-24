@@ -19,7 +19,7 @@ class NotificationTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test the method is not set yet
 	 *
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetMethodFail()
 	{
@@ -43,7 +43,7 @@ class NotificationTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \UnexpectedValueException
+	 * @expectedException JsonRpcFormatter\Exception\UnexpectedValueException
 	 */
 	public function testSetMethodFail()
 	{
@@ -59,7 +59,7 @@ class NotificationTest extends \PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetParamsFail()
 	{
@@ -69,7 +69,7 @@ class NotificationTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \UnexpectedValueException
+	 * @expectedException JsonRpcFormatter\Exception\UnexpectedValueException
 	 */
 	public function testSetParamsFail()
 	{
@@ -103,7 +103,7 @@ class NotificationTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testJsonSerializeNoMethod()
 	{

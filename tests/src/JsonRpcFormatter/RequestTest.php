@@ -19,7 +19,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test the method is not set yet
 	 *
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetMethodFail()
 	{
@@ -43,7 +43,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \UnexpectedValueException
+	 * @expectedException JsonRpcFormatter\Exception\UnexpectedValueException
 	 */
 	public function testSetMethodFail()
 	{
@@ -59,7 +59,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test the method is not set yet
 	 *
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetIdFail()
 	{
@@ -83,7 +83,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \UnexpectedValueException
+	 * @expectedException JsonRpcFormatter\Exception\UnexpectedValueException
 	 */
 	public function testSetIdFail()
 	{
@@ -99,7 +99,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetParamsFail()
 	{
@@ -109,7 +109,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \UnexpectedValueException
+	 * @expectedException JsonRpcFormatter\Exception\UnexpectedValueException
 	 */
 	public function testSetParamsFail()
 	{
@@ -143,7 +143,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testJsonSerializeNoMethod()
 	{

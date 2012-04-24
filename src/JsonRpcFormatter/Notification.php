@@ -50,13 +50,13 @@ class Notification extends Message
 	 * Returns the method member value
 	 *
 	 * @return string
-	 * @throws \LogicException
+	 * @throws Exception\LogicException
 	 */
 	public function getMethod()
 	{
 		if (!isset($this->method))
 		{
-			throw new \LogicException("Method is not set yet.");
+			throw new Exception\LogicException("Method is not set yet.");
 		}
 
 		return $this->method;
@@ -69,14 +69,14 @@ class Notification extends Message
 	 *
 	 * @param string $method
 	 * @return \JsonRpcFormatter\Request
-	 * @throws \UnexpectedValueException
+	 * @throws Exception\UnexpectedValueException
 	 */
 	public function setMethod($method)
 	{
 		if (!$this->validator->isValidMethod($method))
 		{
 			$message = $this->validator->getLastErrorMessage();
-			throw new \UnexpectedValueException($message);
+			throw new Exception\UnexpectedValueException($message);
 		}
 
 		$this->method = $method;
@@ -87,13 +87,13 @@ class Notification extends Message
 	 * Returns the parameters.
 	 *
 	 * @return type
-	 * @throws \LogicException Parameters are omitted.
+	 * @throws Exception\LogicException Parameters are omitted.
 	 */
 	public function getParams()
 	{
 		if (!isset($this->params))
 		{
-			throw new \LogicException("Parameters are not set yet.");
+			throw new Exception\LogicException("Parameters are not set yet.");
 		}
 
 		return $this->params;
@@ -104,14 +104,14 @@ class Notification extends Message
 	 *
 	 * @param type $params
 	 * @return \JsonRpcFormatter\Request
-	 * @throws \UnexpectedValueException
+	 * @throws Exception\UnexpectedValueException
 	 */
 	public function setParams($params)
 	{
 		if (!$this->validator->isValidParamsArgument($params))
 		{
 			$message = $this->validator->getLastErrorMessage();
-			throw new \UnexpectedValueException($message);
+			throw new Exception\UnexpectedValueException($message);
 		}
 
 		$this->params = $params;

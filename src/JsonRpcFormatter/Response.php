@@ -38,7 +38,7 @@ class Response extends Message
 		if (!isset($this->error) && !isset($this->result))
 		{
 			$message = "Either a result or an error has to be set.";
-			throw new \LogicException($message);
+			throw new Exception\LogicException($message);
 		}
 
 		if (!isset($this->error))
@@ -56,13 +56,13 @@ class Response extends Message
 	/**
 	 * Returns the id member value
 	 * @return mixed
-	 * @throws \LogicException
+	 * @throws Exception\LogicException
 	 */
 	public function getId()
 	{
 		if (!isset($this->id))
 		{
-			throw new \LogicException("Id is not set yet.");
+			throw new Exception\LogicException("Id is not set yet.");
 		}
 
 		return $this->id;
@@ -73,14 +73,14 @@ class Response extends Message
 	 *
 	 * @param int|string $id
 	 * @return \JsonRpcFormatter\Request
-	 * @throws \UnexpectedValueException
+	 * @throws Exception\UnexpectedValueException
 	 */
 	public function setId($id)
 	{
 		if (!$this->validator->isValidId($id))
 		{
 			$message = $this->validator->getLastErrorMessage();
-			throw new \UnexpectedValueException($message);
+			throw new Exception\UnexpectedValueException($message);
 		}
 
 		$this->id = $id;
@@ -101,13 +101,13 @@ class Response extends Message
 	 * Returns the result member value
 	 *
 	 * @return mixed
-	 * @throws \LogicException Result member is ommited.
+	 * @throws Exception\LogicException Result member is ommited.
 	 */
 	public function getResult()
 	{
 		if (!isset($this->result))
 		{
-			throw new \LogicException("Result is not set.");
+			throw new Exception\LogicException("Result is not set.");
 		}
 
 		return $this->result;
@@ -130,13 +130,13 @@ class Response extends Message
 	 * Returns the error member value
 	 *
 	 * @return Error
-	 * @throws \LogicException Result member is ommited.
+	 * @throws Exception\LogicException Result member is ommited.
 	 */
 	public function getError()
 	{
 		if (!isset($this->error))
 		{
-			throw new \LogicException("Error is not set.");
+			throw new Exception\LogicException("Error is not set.");
 		}
 
 		return $this->error;

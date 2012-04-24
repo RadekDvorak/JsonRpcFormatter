@@ -19,7 +19,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 	/**
 	 * Test the method is not set yet
 	 *
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetIdFail()
 	{
@@ -45,7 +45,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \UnexpectedValueException
+	 * @expectedException JsonRpcFormatter\Exception\UnexpectedValueException
 	 */
 	public function testSetIdFail()
 	{
@@ -68,7 +68,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetResultFail()
 	{
@@ -100,13 +100,13 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($result, $this->object->getResult());
 		$this->assertTrue($this->object->hasResult());
 
-		$this->setExpectedException('\LogicException');
+		$this->setExpectedException('JsonRpcFormatter\Exception\LogicException');
 		$this->object->getError();
 	}
 	
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetErrorFail()
 	{
@@ -138,7 +138,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 		$this->assertSame($error, $this->object->getError());
 		$this->assertTrue($this->object->hasError());
 
-		$this->setExpectedException('\LogicException');
+		$this->setExpectedException('JsonRpcFormatter\Exception\LogicException');
 		$this->object->getResult();
 	}
 
@@ -213,7 +213,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testJsonSerializeNoData()
 	{

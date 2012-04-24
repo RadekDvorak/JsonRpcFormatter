@@ -1,6 +1,6 @@
 #Todo / Roadmap#
 ##version 1.0##
-* Namespaced exceptions extending those standard
+* DONE (Namespaced exceptions extending those standard)
 * Eliminate checks for impossible errors in the parser
 
 ##version 1.1##

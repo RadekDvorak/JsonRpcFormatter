@@ -17,7 +17,7 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 	protected $object;
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetCodeFail()
 	{
@@ -27,7 +27,7 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \UnexpectedValueException
+	 * @expectedException JsonRpcFormatter\Exception\UnexpectedValueException
 	 */
 	public function testSetCode()
 	{
@@ -57,7 +57,7 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetMessageFail()
 	{
@@ -67,7 +67,7 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \UnexpectedValueException
+	 * @expectedException JsonRpcFormatter\Exception\UnexpectedValueException
 	 */
 	public function testSetMessage()
 	{
@@ -97,7 +97,7 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testGetDataFail()
 	{
@@ -117,13 +117,13 @@ class ErrorTest extends \PHPUnit_Framework_TestCase
 		$this->assertEquals($arg, $this->object->getData());
 
 		// test unset
-		$this->setExpectedException('\\LogicException');
+		$this->setExpectedException('\\JsonRpcFormatter\\Exception\\LogicException');
 		$this->object->unsetData();
 		$this->object->getData();
 	}
 
 	/**
-	 * @expectedException \LogicException
+	 * @expectedException JsonRpcFormatter\Exception\LogicException
 	 */
 	public function testUnsetData()
 	{

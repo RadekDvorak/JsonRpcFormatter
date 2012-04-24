@@ -51,13 +51,13 @@ class Error extends Message
 	 * Returns code member's value
 	 *
 	 * @return int
-	 * @throws \LogicException
+	 * @throws Exception\LogicException
 	 */
 	public function getCode()
 	{
 		if (!isset($this->code))
 		{
-			throw new \LogicException("Code is not set yet.");
+			throw new Exception\LogicException("Code is not set yet.");
 		}
 		return $this->code;
 	}
@@ -67,14 +67,14 @@ class Error extends Message
 	 *
 	 * @param type $code
 	 * @return \JsonRpcFormatter\Error
-	 * @throws \UnexpectedValueException
+	 * @throws Exception\UnexpectedValueException
 	 */
 	public function setCode($code)
 	{
 		if (!$this->validator->isValidErrorCode($code))
 		{
 			$message = $this->validator->getLastErrorMessage();
-			throw new \UnexpectedValueException($message);
+			throw new Exception\UnexpectedValueException($message);
 		}
 
 		$this->code = $code;
@@ -85,13 +85,13 @@ class Error extends Message
 	 * Returns value of the message member
 	 *
 	 * @return type
-	 * @throws \LogicException
+	 * @throws Exception\LogicException
 	 */
 	public function getMessage()
 	{
 		if (!isset($this->message))
 		{
-			throw new \LogicException("Message is not set yet.");
+			throw new Exception\LogicException("Message is not set yet.");
 		}
 
 		return $this->message;
@@ -102,14 +102,14 @@ class Error extends Message
 	 *
 	 * @param string $message
 	 * @return \JsonRpcFormatter\Error
-	 * @throws \UnexpectedValueException
+	 * @throws Exception\UnexpectedValueException
 	 */
 	public function setMessage($message)
 	{
 		if (!$this->validator->isValidErrorMessage($message))
 		{
 			$message = $this->validator->getLastErrorMessage();
-			throw new \UnexpectedValueException($message);
+			throw new Exception\UnexpectedValueException($message);
 		}
 
 		$this->message = $message;
@@ -120,13 +120,13 @@ class Error extends Message
 	 * Returns the value of the data member
 	 *
 	 * @return mixed
-	 * @throws \LogicException Data are omitted.
+	 * @throws Exception\LogicException Data are omitted.
 	 */
 	public function getData()
 	{
 		if (!isset($this->data))
 		{
-			throw new \LogicException("Data are not set yet.");
+			throw new Exception\LogicException("Data are not set yet.");
 		}
 
 		return $this->data;
